@@ -1,9 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -78,6 +80,14 @@ instruction_t opcodes[] = {
 	{NULL, NULL}
 };
 
+/**
+ * enum data_format - Specifies data format of either stack or queue
+ *
+ * @STACK: Stack (LIFO)
+ * @QUEUE: Queue (FIFO)
+ *
+ * Description: Switches between stack or queue operation modes
+ */
 typedef enum
 {
 	STACK,
