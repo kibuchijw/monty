@@ -35,10 +35,21 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void push_op(stack_t **stack, unsigned int line_number);
+void pall_op(stack_t **stack, unsigned int line_number);
+void pint_op(stack_t **stack, unsigned int line_number);
+void pop_op(stack_t **stack, unsigned int line_number);
+void swap_op(stack_t **stack, unsigned int line_number);
+
 instruction_t get_opcode(char *opcode);
 void execute_opcodes(char *opcode, stack_t **stack, unsigned int line_number);
 
 instruction_t opcodes[] = {
+	{"push", push_op},
+	{"pall", pall_op},
+	{"pint", pint_op},
+	{"pop", pop_op},
+	{"swap", swap_op},
 };
 
 #endif /* MONTY_H */
