@@ -47,6 +47,10 @@ void div_op(stack_t **stack, unsigned int line_number);
 void mul_op(stack_t **stack, unsigned int line_number);
 void mod_op(stack_t **stack, unsigned int line_number);
 
+
+void stack_op(stack_t **stack, unsigned int line_number);
+void queue_op(stack_t **stack, unsigned int line_number);
+
 instruction_t get_opcode(char *opcode);
 void execute_opcodes(char *opcode, stack_t **stack, unsigned int line_number);
 
@@ -62,5 +66,12 @@ instruction_t opcodes[] = {
 	{"mul", mul_op},
 	{"mod", mod_op},
 };
+
+typedef enum
+{
+    STACK,
+    QUEUE
+} data_format;
+
 
 #endif /* MONTY_H */
