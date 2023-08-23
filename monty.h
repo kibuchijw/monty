@@ -46,6 +46,11 @@ void sub_op(stack_t **stack, unsigned int line_number);
 void div_op(stack_t **stack, unsigned int line_number);
 void mul_op(stack_t **stack, unsigned int line_number);
 void mod_op(stack_t **stack, unsigned int line_number);
+void pchar_op(stack_t **stack, unsigned int line_number);
+void pstr_op(stack_t **stack, unsigned int line_number);
+void rotl_op(stack_t **stack, unsigned int line_number);
+void rotr_op(stack_t **stack, unsigned int line_number);
+void nop_op(stack_t **stack, unsigned int line_number);
 
 
 void stack_op(stack_t **stack, unsigned int line_number);
@@ -65,12 +70,18 @@ instruction_t opcodes[] = {
 	{"div", div_op},
 	{"mul", mul_op},
 	{"mod", mod_op},
+	{"pchar", pchar_op},
+	{"pstr", pstr_op},
+	{"rotl", rotl_op},
+	{"rotr", rotr_op},
+	{"nop", nop_op},
+	{NULL, NULL}
 };
 
 typedef enum
 {
-    STACK,
-    QUEUE
+	STACK,
+	QUEUE
 } data_format;
 
 
