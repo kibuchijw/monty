@@ -41,6 +41,12 @@ void pint_op(stack_t **stack, unsigned int line_number);
 void pop_op(stack_t **stack, unsigned int line_number);
 void swap_op(stack_t **stack, unsigned int line_number);
 
+void add_op(stack_t **stack, unsigned int line_number);
+void sub_op(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
+void mul_op(stack_t **stack, unsigned int line_number);
+void mod_op(stack_t **stack, unsigned int line_number);
+
 instruction_t get_opcode(char *opcode);
 void execute_opcodes(char *opcode, stack_t **stack, unsigned int line_number);
 
@@ -50,6 +56,11 @@ instruction_t opcodes[] = {
 	{"pint", pint_op},
 	{"pop", pop_op},
 	{"swap", swap_op},
+	{"add", add_op},
+	{"sub", sub_op},
+	{"div", div_op},
+	{"mul", mul_op},
+	{"mod", mod_op},
 };
 
 #endif /* MONTY_H */
