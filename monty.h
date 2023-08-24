@@ -1,11 +1,19 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+typedef enum
+{
+	STACK,
+	QUEUE
+} data_format;
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,7 +50,6 @@ void pall_op(stack_t **stack, unsigned int line_number);
 void pint_op(stack_t **stack, unsigned int line_number);
 void pop_op(stack_t **stack, unsigned int line_number);
 void swap_op(stack_t **stack, unsigned int line_number);
-
 void add_op(stack_t **stack, unsigned int line_number);
 void sub_op(stack_t **stack, unsigned int line_number);
 void div_op(stack_t **stack, unsigned int line_number);
@@ -53,54 +60,18 @@ void pstr_op(stack_t **stack, unsigned int line_number);
 void rotl_op(stack_t **stack, unsigned int line_number);
 void rotr_op(stack_t **stack, unsigned int line_number);
 void nop_op(stack_t **stack, unsigned int line_number);
-
-
 void stack_op(stack_t **stack, unsigned int line_number);
 void queue_op(stack_t **stack, unsigned int line_number);
 
+
 instruction_t get_opcode(char *opcode);
 void execute_opcodes(char *opcode, stack_t **stack, unsigned int line_number);
-
-instruction_t opcodes[] = {
-	{"push", push_op},
-	{"pall", pall_op},
-	{"pint", pint_op},
-	{"pop", pop_op},
-	{"swap", swap_op},
-	{"add", add_op},
-	{"sub", sub_op},
-	{"div", div_op},
-	{"mul", mul_op},
-	{"mod", mod_op},
-	{"pchar", pchar_op},
-	{"pstr", pstr_op},
-	{"rotl", rotl_op},
-	{"rotr", rotr_op},
-	{"nop", nop_op},
-	{NULL, NULL}
-};
-
-/**
- * enum data_format - Specifies data format of either stack or queue
- *
- * @STACK: Stack (LIFO)
- * @QUEUE: Queue (FIFO)
- *
- * Description: Switches between stack or queue operation modes
- */
-typedef enum
-{
-	STACK,
-	QUEUE
-} data_format;
-
 void strip_whitespace(char **line);
 void strip_trailing_whitespace(char *line);
 void remove_dollar_sign(char *line);
 void process_line(stack_t **stack, data_format format, char *line,
 		unsigned int line_number);
 void read_and_process_file(const char *filename);
-
-
+extern instruction_t opcodes[];
 
 #endif /* MONTY_H */

@@ -1,5 +1,26 @@
 #include "monty.h"
 
+instruction_t opcodes[] = {
+	{"push", push_op},
+	{"pall", pall_op},
+	{"pint", pint_op},
+	{"pop", pop_op},
+	{"swap", swap_op},
+	{"add", add_op},
+	{"sub", sub_op},
+	{"div", div_op},
+	{"mul", mul_op},
+	{"mod", mod_op},
+	{"pchar", pchar_op},
+	{"pstr", pstr_op},
+	{"rotl", rotl_op},
+	{"rotr", rotr_op},
+	{"nop", nop_op},
+	{NULL, NULL}};
+
+
+
+
 /**
  *main - This is the entry point of the monty interpreter.
  * The function first checks the No of arguments passed. If it they
@@ -25,4 +46,5 @@ int main(int argc, char *argv[])
 	read_and_process_file(argv[1]);
 	return (EXIT_SUCCESS);
 }
+
 
