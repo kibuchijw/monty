@@ -94,5 +94,13 @@ typedef enum
 	QUEUE
 } data_format;
 
+void strip_whitespace(char **line);
+void strip_trailing_whitespace(char *line);
+void remove_dollar_sign(char *line);
+void process_line(stack_t **stack, data_format format, char *line,
+		unsigned int line_number);
+void read_and_process_file(const char *filename);
+
+
 
 #endif /* MONTY_H */
